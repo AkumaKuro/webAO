@@ -1,4 +1,5 @@
 import { client } from "../../client";
+import { MessageType } from "./messageEncoder";
 
 /**
  * Sends health point command.
@@ -6,5 +7,8 @@ import { client } from "../../client";
  * @param {number} hp the health point
  */
 export const sendHP = (side: number, hp: number) => {
-  client.sender.sendServer(`HP#${side}#${hp}#%`);
+  client.sender.sendServer(
+    MessageType.HP,
+    [side.toString(), hp.toString()]
+  );
 };

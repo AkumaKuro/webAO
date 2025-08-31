@@ -3,6 +3,7 @@ import { addTrack } from "../../client/addTrack";
 import { createArea } from "../../client/createArea";
 import { fix_last_area } from "../../client/fixLastArea";
 import { isAudio } from "../../client/isAudio";
+import { MessageType } from "../../client/sender/messageEncoder";
 
 /**
  * Handles incoming music information, containing multiple entries
@@ -33,5 +34,8 @@ export const handleEM = (args: string[]) => {
     }
   }
   // get the next batch of tracks
-  client.sender.sendServer(`AM#${Number(args[1]) / 10 + 1}#%`);
+  client.sender.sendServer(
+    MessageType.AM,
+    [(Number(args[1]) / 10 + 1).toString()]
+  )
 };

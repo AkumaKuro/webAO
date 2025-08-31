@@ -4,7 +4,7 @@
  * https://www.w3schools.com/js/js_cookies.asp
  * @param {string} cname The name of the cookie to return
  */
-const getCookie = (cname: string) => {
+function getCookie(cname: string) : string {
   try {
     const name = `${cname}=`;
     const decodedCookie = decodeURIComponent(document.cookie);
@@ -23,4 +23,5 @@ const getCookie = (cname: string) => {
     return "";
   }
 };
+
 export default getCookie;

@@ -2,6 +2,7 @@ import { client } from "../../client";
 import { escapeChat } from "../../encoding";
 import setCookie from "../../utils/setCookie";
 import { saveChatlogHandle } from "../../client/saveChatLogHandle";
+import { MessageType } from "./messageEncoder";
 /**
  * Sends an out-of-character chat message.
  * @param {string} message the message to send
@@ -28,6 +29,9 @@ export const sendOOC = (message: string) => {
       // Command Not Recognized
     }
   } else {
-    client.sender.sendServer(`CT#${oocName}#${oocMessage}#%`);
+    client.sender.sendServer(
+      MessageType.CT,
+      [oocName, oocMessage]
+    )
   }
 };

@@ -2,6 +2,7 @@ import queryParser from "../../utils/queryParser";
 
 import { client } from "../../client";
 import { handleCharacterInfo } from "../../client/handleCharacterInfo";
+import { MessageType } from "../../client/sender/messageEncoder";
 const { mode } = queryParser();
 
 /**
@@ -26,5 +27,7 @@ export const handleSC = async (args: string[]) => {
     setTimeout(() => handleCharacterInfo(chargs, charid), charid * 6);
   }
   // We're done with the characters, request the music
-  client.sender.sendServer("RM#%");
+  client.sender.sendServer(
+    MessageType.RM, []
+  )
 };

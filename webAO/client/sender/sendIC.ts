@@ -2,6 +2,7 @@ import { extrafeatures } from "../../client";
 import { escapeChat } from "../../encoding";
 import { client } from "../../client";
 import queryParser from "../../utils/queryParser";
+import { MessageType } from "./messageEncoder";
 const { mode } = queryParser();
 
 /**
@@ -83,20 +84,28 @@ export const sendIC = (
     }
   }
 
-  const serverMessage =
-    `MS#${deskmod}#${escapeChat(preanim)}#${escapeChat(name)}#${escapeChat(
-      emote,
-    )}` +
-    `#${escapeChat(message)}#${escapeChat(side)}#${escapeChat(
-      sfx_name,
-    )}#${emote_modifier}` +
-    `#${client.charID}#${sfx_delay}#${Number(objection_modifier)}#${Number(
-      evidence,
-    )}#${Number(flip)}#${Number(
-      realization,
-    )}#${text_color}#${extra_cccc}${extra_27}${extra_28}%`;
-
-  client.sender.sendServer(serverMessage);
+  client.sender.sendServer(
+    MessageType.MS, [
+      deskmod.toString(),
+      escapeChat(preanim),
+      escapeChat(name),
+      escapeChat(emote),
+      escapeChat(message),
+      escapeChat(side),
+      escapeChat(sfx_name),
+      emote_modifier.toString(),
+      client.charID.toString(),
+      sfx_delay.toString(),
+      Number(objection_modifier).toString(),
+      Number(evidence).toString(),
+      Number(flip).toString(),
+      Number(realization).toString(),
+      text_color.toString(),
+      extra_cccc,
+      extra_27,
+      extra_28
+    ]
+  );
   if (mode === "replay") {
     (<HTMLInputElement>document.getElementById("client_ooclog")).value +=
       `wait#${

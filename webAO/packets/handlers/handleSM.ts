@@ -3,6 +3,7 @@ import { addTrack } from "../../client/addTrack";
 import { isAudio } from "../../client/isAudio";
 import { fix_last_area } from "../../client/fixLastArea";
 import { createArea } from "../../client/createArea";
+import { MessageType } from "../../client/sender/messageEncoder";
 /**
  * Handles incoming music information, containing all music in one packet.
  * @param {Array} args packet arguments
@@ -33,5 +34,7 @@ export const handleSM = (args: string[]) => {
   }
 
   // Music done, carry on
-  client.sender.sendServer("RD#%");
+  client.sender.sendServer(
+    MessageType.RD, []
+  )
 };

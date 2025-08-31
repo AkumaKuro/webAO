@@ -1,4 +1,5 @@
 import { client, setOldLoading } from "../../client";
+import { MessageType } from "../../client/sender/messageEncoder";
 const version = process.env.npm_package_version;
 
 /**
@@ -23,6 +24,9 @@ export const handleID = (args: string[]) => {
   } // bugged version
 
   if (serverSoftware !== "webAO") {
-    client.sender.sendServer(`ID#webAO#${version}#%`);
+    client.sender.sendServer(
+      MessageType.ID,
+      [version]
+    )
   }
 };

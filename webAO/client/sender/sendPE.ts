@@ -1,5 +1,6 @@
 import { client } from "../../client";
 import { escapeChat } from "../../encoding";
+import { MessageType } from "./messageEncoder";
 
 /**
  * Sends add evidence command.
@@ -9,6 +10,10 @@ import { escapeChat } from "../../encoding";
  */
 export const sendPE = (name: string, desc: string, img: string) => {
   client.sender.sendServer(
-    `PE#${escapeChat(name)}#${escapeChat(desc)}#${escapeChat(img)}#%`,
-  );
+    MessageType.PE, [
+      escapeChat(name),
+      escapeChat(desc),
+      escapeChat(img)
+    ]
+  )
 };

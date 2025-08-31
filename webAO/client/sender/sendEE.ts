@@ -1,5 +1,6 @@
 import { client } from "../../client";
 import { escapeChat } from "../../encoding";
+import { MessageType } from "./messageEncoder";
 
 /**
  * Sends edit evidence command.
@@ -10,6 +11,11 @@ import { escapeChat } from "../../encoding";
  */
 export const sendEE = (id: number, name: string, desc: string, img: string) => {
   client.sender.sendServer(
-    `EE#${id}#${escapeChat(name)}#${escapeChat(desc)}#${escapeChat(img)}#%`,
+    MessageType.EE, [
+      id.toString(),
+      escapeChat(name),
+      escapeChat(desc),
+      escapeChat(img)
+    ]
   );
 };

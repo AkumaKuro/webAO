@@ -1,4 +1,5 @@
 import { client, extrafeatures, oldLoading } from "../../client";
+import { MessageType } from "../../client/sender/messageEncoder";
 
 /**
  * Received when the server announces its server info,
@@ -27,8 +28,12 @@ export const handleSI = (args: string[]) => {
 
   // this is determined at the top of this file
   if (!oldLoading) {
-    client.sender.sendServer("RC#%");
+    client.sender.sendServer(
+      MessageType.RC, []
+    )
   } else {
-    client.sender.sendServer("askchar2#%");
+    client.sender.sendServer(
+      MessageType.ASK_CHARACTER_2, []
+    )
   }
 };

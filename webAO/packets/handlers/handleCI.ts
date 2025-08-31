@@ -1,5 +1,6 @@
 import { client } from "../../client";
 import { handleCharacterInfo } from "../../client/handleCharacterInfo";
+import { MessageType } from "../../client/sender/messageEncoder";
 /**
  * Handles incoming character information, bundling multiple characters
  * per packet.
@@ -18,5 +19,8 @@ export const handleCI = (args: string[]) => {
     }
   }
   // Request the next pack
-  client.sender.sendServer(`AN#${Number(args[1]) / 10 + 1}#%`);
+  client.sender.sendServer(
+    MessageType.AN,
+    [(Number(args[1]) / 10 + 1).toString()]
+  )
 };

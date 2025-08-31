@@ -21,7 +21,7 @@ import {
   fetchCharacterList,
 } from "./client/fetchLists";
 import getCookie from "./utils/getCookie";
-import setCookie from "./utils/setCookie";
+import { MessageType } from "./client/sender/messageEncoder";
 const { ip: serverIP, connect, mode, theme, serverName } = queryParser();
 
 document.title = serverName;
@@ -248,9 +248,9 @@ class Client extends EventEmitter {
    * to the server.
    */
   joinServer() {
-    this.sender.sendServer(`HI#${hdid}#%`);
+    this.sender.sendServer(MessageType.HI, [hdid])
     if (this.enableCaptcha && getCookie("hdid") !== hdid) {
-      this.sender.sendServer(getCookie("hdid"));
+      this.sender.sendServerRaw(getCookie("hdid"));
       document.getElementById("client_secondfactor").style.display = "block";
       document.getElementById("client_charselect").remove();
       document.getElementById("client_ooc").remove();

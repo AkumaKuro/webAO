@@ -1,6 +1,6 @@
 import { sendIC } from "./sendIC";
 import { sendSelf } from "./sendSelf";
-import { sendServer } from "./sendServer";
+import { sendServer, sendServerRaw } from "./sendServer";
 import { sendCheck } from "./sendCheck";
 import { sendHP } from "./sendHP";
 import { sendOOC } from "./sendOOC";
@@ -12,6 +12,7 @@ import { sendEE } from "./sendEE";
 import { sendDE } from "./sendDE";
 import { sendPE } from "./sendPE";
 import { sendMA } from "./sendMA";
+import { MessageType } from "./messageEncoder";
 export interface ISender {
   sendIC: (
     deskmod: number,
@@ -42,7 +43,8 @@ export interface ISender {
     effect: string,
   ) => void;
   sendSelf: (message: string) => void;
-  sendServer: (message: string) => void;
+  sendServer: (message: MessageType, args: string[]) => void;
+  sendServerRaw: (data: string) => void
   sendCheck: () => void;
   sendHP: (side: number, hp: number) => void;
   sendOOC: (message: string) => void;
@@ -59,6 +61,7 @@ export const sender = {
   sendIC,
   sendSelf,
   sendServer,
+  sendServerRaw,
   sendCheck,
   sendHP,
   sendOOC,
