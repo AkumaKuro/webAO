@@ -29,9 +29,6 @@ import { handleARUP } from "./handlers/handleARUP";
 import { handleAUTH } from "./handlers/handleAUTH";
 import { handleaskchaa } from "./handlers/handleaskchaa";
 import { handleCC } from "./handlers/handleCC";
-import { handleRC } from "./handlers/handleRC";
-import { handleRM } from "./handlers/handleRM";
-import { handleRD } from "./handlers/handleRD";
 import { handleCharsCheck } from "./handlers/handleCharsCheck";
 import { handlePV } from "./handlers/handlePV";
 import { handleASS } from "./handlers/handleASS";
@@ -39,7 +36,7 @@ import { handleackMS } from "./handlers/handleackMS";
 import { handleSP } from "./handlers/handleSP";
 import { handleJD } from "./handlers/handleJD";
 import { handlePR } from "./handlers/handlePR";
-import { handlePN, handlePU } from './handlers/Handler'
+import { handlePN, handlePU, handleRC, handleRD, handleRM } from './handlers/Handler'
 
 export const packets = {
   MS: handleMS,
