@@ -1,42 +1,5 @@
-import { handleMS } from "./handlers/handleMS";
-import { handleCT } from "./handlers/handleCT";
-import { handleMC } from "./handlers/handleMC";
-import { handleRMC } from "./handlers/handleRMC";
-import { handleFL } from "./handlers/handleFL";
-import { handleLE } from "./handlers/handleLE";
-import { handleEM } from "./handlers/handleEM";
-import { handleEI } from "./handlers/handleEI";
-import { handleSC } from "./handlers/handleSC";
-import { handleCI } from "./handlers/handleCI";
-import { handleFM } from "./handlers/handleFM";
-import { handleFA } from "./handlers/handleFA";
-import { handleSM } from "./handlers/handleSM";
-import { handleMM } from "./handlers/handleMM";
-import { handleBD } from "./handlers/handleBD";
-import { handleBB } from "./handlers/handleBB";
-import { handleKB } from "./handlers/handleKB";
-import { handleKK } from "./handlers/handleKK";
-import { handleDONE } from "./handlers/handleDONE";
-import { handleBN } from "./handlers/handleBN";
-import { handleHP } from "./handlers/handleHP";
-import { handleRT } from "./handlers/handleRT";
-import { handleTI } from "./handlers/handleTI";
-import { handleZZ } from "./handlers/handleZZ";
-import { handleHI } from "./handlers/handleHI";
-import { handleID } from "./handlers/handleID";
-import { handleSI } from "./handlers/handleSI";
-import { handleARUP } from "./handlers/handleARUP";
-import { handleAUTH } from "./handlers/handleAUTH";
-import { handleaskchaa } from "./handlers/handleaskchaa";
-import { handleCC } from "./handlers/handleCC";
-import { handleCharsCheck } from "./handlers/handleCharsCheck";
-import { handlePV } from "./handlers/handlePV";
-import { handleASS } from "./handlers/handleASS";
-import { handleackMS } from "./handlers/handleackMS";
-import { handleSP } from "./handlers/handleSP";
-import { handleJD } from "./handlers/handleJD";
-import { handlePR } from "./handlers/handlePR";
-import { handlePN, handlePU, handleRC, handleRD, handleRM } from './handlers/Handler'
+import { handleackMS, handleARUP, handleaskchaa, handleASS, handleAUTH, handleBB, handleBD, handleBN, handleCC, handleCharsCheck, handleCI, handleCT, handleDONE, handleEI, handleEM, handleFA, handleFL, handleFM, handleHI, handleHP, handleID, handleJD, handleKB, handleKK, handleLE, handleMC, handleMM, handleMS, handlePN, handlePR, handlePU, handlePV, handleRC, handleRD, handleRM, handleRMC, handleRT, handleSC, handleSI, handleSM, handleSP, handleTI, handleZZ } from './handlers/Handler'
+
 
 export const packets = {
   MS: handleMS,
