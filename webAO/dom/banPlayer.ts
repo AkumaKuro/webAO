@@ -12,7 +12,7 @@ export function banPlayer(id: number) {
 
   client.sender.sendMA(id, length, reason);
 }
-window.banPlayer = banPlayer;
+(globalThis as any).banPlayer = banPlayer;
 
 /**
  * Tries to kick a player from the playerlist
@@ -24,4 +24,4 @@ export function kickPlayer(id: number) {
 
   client.sender.sendMA(id, 0, reason);
 }
-window.kickPlayer = kickPlayer;
+(globalThis as any).kickPlayer = kickPlayer;

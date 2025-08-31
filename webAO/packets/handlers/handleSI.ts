@@ -29,7 +29,7 @@ export const handleSI = (args: string[]) => {
   // this is determined at the top of this file
   if (!oldLoading) {
     client.sender.sendServer(
-      MessageType.RC, []
+      MessageType.RETRIEVE_CHARACTERS, []
     )
   } else {
     client.sender.sendServer(

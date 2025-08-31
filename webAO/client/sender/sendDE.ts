@@ -9,7 +9,7 @@ import { MessageType } from "./messageEncoder";
 
 export const sendDE = (id: number) => {
   client.sender.sendServer(
-    MessageType.DE,
+    MessageType.DELETE_EVIDENCE,
     [id.toString()]
   );
 };

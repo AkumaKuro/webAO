@@ -8,7 +8,7 @@ import { MessageType } from './messageEncoder'
 export const sendCharacter = (character: number) => {
   if (character === -1 || client.chars[character].name) {
     client.sender.sendServer(
-      MessageType.CC, [
+      MessageType.CHOOSE_CHARACTER, [
         client.playerID.toString(),
         character.toString(),
         'web'

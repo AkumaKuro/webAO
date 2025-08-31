@@ -10,4 +10,4 @@ export function changeCallwords() {
   )).value.split("\n");
   setCookie("callwords", client.callwords.join("\n"));
 }
-window.changeCallwords = changeCallwords;
+(globalThis as any).changeCallwords = changeCallwords;

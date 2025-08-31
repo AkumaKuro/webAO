@@ -13,4 +13,4 @@ export async function switchPanTilt() {
 
   return;
 }
-window.switchPanTilt = switchPanTilt;
+(globalThis as any).switchPanTilt = switchPanTilt;

@@ -9,4 +9,4 @@ export function deleteEvidence() {
   client.sender.sendDE(id);
   cancelEvidence();
 }
-window.deleteEvidence = deleteEvidence;
+(globalThis as any).deleteEvidence = deleteEvidence;

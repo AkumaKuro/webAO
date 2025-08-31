@@ -9,4 +9,4 @@ export function charError(image: HTMLImageElement) {
   image.src = transparentPng;
   return true;
 }
-window.charError = charError;
+(globalThis as any).charError = charError;

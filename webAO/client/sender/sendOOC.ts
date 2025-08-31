@@ -30,7 +30,7 @@ export const sendOOC = (message: string) => {
     }
   } else {
     client.sender.sendServer(
-      MessageType.CT,
+      MessageType.OUT_OF_CHARACTER_MESSAGE,
       [oocName, oocMessage]
     )
   }

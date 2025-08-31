@@ -17,4 +17,4 @@ export function chartable_filter(_event: Event) {
     }
   });
 }
-window.chartable_filter = chartable_filter;
+(globalThis as any).chartable_filter = chartable_filter;

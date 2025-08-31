@@ -12,4 +12,4 @@ export function onOOCEnter(event: KeyboardEvent) {
       "";
   }
 }
-window.onOOCEnter = onOOCEnter;
+(globalThis as any).onOOCEnter = onOOCEnter;

@@ -15,4 +15,4 @@ export function area_click(el: HTMLElement) {
   client.area = Number(el.id.substring(4));
   updatePlayerAreas(client.area);
 }
-window.area_click = area_click;
+(globalThis as any).area_click = area_click;

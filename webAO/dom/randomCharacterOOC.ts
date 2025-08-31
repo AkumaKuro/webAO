@@ -5,4 +5,4 @@ import { client } from "../client";
 export function randomCharacterOOC() {
   client.sender.sendOOC(`/randomchar`);
 }
-window.randomCharacterOOC = randomCharacterOOC;
+(globalThis as any).randomCharacterOOC = randomCharacterOOC;

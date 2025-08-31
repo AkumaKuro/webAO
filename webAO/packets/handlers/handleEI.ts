@@ -24,7 +24,7 @@ export const handleEI = (args: string[]) => {
   };
 
   client.sender.sendServer(
-    MessageType.AE,
+    MessageType.REQUEST_EVIDENCE,
     [(evidenceID + 1).toString()]
   )
 };

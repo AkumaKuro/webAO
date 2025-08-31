@@ -17,4 +17,4 @@ export function addEvidence() {
   );
   cancelEvidence();
 }
-window.addEvidence = addEvidence;
+(globalThis as any).addEvidence = addEvidence;

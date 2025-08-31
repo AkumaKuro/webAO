@@ -7,6 +7,7 @@ import { MessageType } from "./messageEncoder";
  */
 export const sendRT = (testimony: string) => {
   client.sender.sendServer(
-    MessageType.RT, [testimony]
+    MessageType.SEND_TESTIMONY,
+    [testimony]
   )
 };

@@ -5,12 +5,14 @@ import { handleCharacterInfo } from "../../client/handleCharacterInfo";
 import { MessageType } from "../../client/sender/messageEncoder";
 const { mode } = queryParser();
 
+export {handleSC}
+
 /**
  * Handles incoming character information, containing all characters
  * in one packet.
  * @param {Array} args packet arguments
  */
-export const handleSC = async (args: string[]) => {
+async function handleSC(args: string[]) {
   if (mode === "watch") {
     // Spectators don't need to pick a character
     document.getElementById("client_charselect")!.style.display = "none";

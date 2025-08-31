@@ -6,7 +6,7 @@ import { MessageType } from "./messageEncoder";
  */
 export const sendCheck = () => {
   client.sender.sendServer(
-    MessageType.CH,
+    MessageType.CHECK,
     [client.charID.toString()]
   );
 };

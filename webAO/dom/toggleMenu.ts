@@ -15,4 +15,4 @@ export function toggleMenu(menu: number) {
     setSelectedMenu(menu);
   }
 }
-window.toggleMenu = toggleMenu;
+(globalThis as any).toggleMenu = toggleMenu;

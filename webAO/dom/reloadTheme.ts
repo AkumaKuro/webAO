@@ -13,4 +13,4 @@ export const reloadTheme = () => {
   (<HTMLAnchorElement>document.getElementById("client_theme")).href =
     `styles/${client.viewport.getTheme()}.css`;
 };
-window.reloadTheme = reloadTheme;
+(globalThis as any).reloadTheme = reloadTheme;

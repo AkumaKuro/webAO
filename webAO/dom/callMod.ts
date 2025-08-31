@@ -13,4 +13,4 @@ export function callMod() {
     client.sender.sendZZ(modcall, -1);
   }
 }
-window.callMod = callMod;
+(globalThis as any).callMod = callMod;

@@ -13,4 +13,4 @@ export function updateIniswap() {
     ini_name.style.display = "none";
   }
 }
-window.updateIniswap = updateIniswap;
+(globalThis as any).updateIniswap = updateIniswap;

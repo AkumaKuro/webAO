@@ -5,4 +5,4 @@ import { packetHandler } from "../packets/packetHandler";
 export function modcall_test() {
   packetHandler.get("ZZ")!("test#test".split("#"));
 }
-window.modcall_test = modcall_test;
+(globalThis as any).modcall_test = modcall_test;

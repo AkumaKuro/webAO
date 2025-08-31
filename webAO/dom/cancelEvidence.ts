@@ -31,4 +31,4 @@ export function cancelEvidence() {
   document.getElementById("evi_del")!.className =
     "client_button hover_button inactive";
 }
-window.cancelEvidence = cancelEvidence;
+(globalThis as any).cancelEvidence = cancelEvidence;

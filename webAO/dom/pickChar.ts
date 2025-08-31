@@ -13,4 +13,4 @@ export function pickChar(ccharacter: number) {
   }
   client.sender.sendCharacter(ccharacter);
 }
-window.pickChar = pickChar;
+(globalThis as any).pickChar = pickChar;

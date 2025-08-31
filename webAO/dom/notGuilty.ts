@@ -6,4 +6,4 @@ import { client } from "../client";
 export function notguilty() {
   client.sender.sendRT("judgeruling#0");
 }
-window.notguilty = notguilty;
+(globalThis as any).notguilty = notguilty;

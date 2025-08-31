@@ -7,4 +7,4 @@ export function changeCharacter(_event: Event) {
   document.getElementById("client_charselect")!.style.display = "block";
   document.getElementById("client_emo")!.innerHTML = "";
 }
-window.changeCharacter = changeCharacter;
+(globalThis as any).changeCharacter = changeCharacter;

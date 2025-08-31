@@ -14,4 +14,4 @@ export async function switchChatOffset() {
     container.style.left = "0";
   }
 }
-window.switchChatOffset = switchChatOffset;
+(globalThis as any).switchChatOffset = switchChatOffset;

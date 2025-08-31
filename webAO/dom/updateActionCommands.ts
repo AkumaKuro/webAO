@@ -23,4 +23,4 @@ export function updateActionCommands(side: string) {
     }
   }
 }
-window.updateActionCommands = updateActionCommands;
+(globalThis as any).updateActionCommands = updateActionCommands;

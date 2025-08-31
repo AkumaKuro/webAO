@@ -6,4 +6,4 @@ import { client } from "../client";
 export function addHPP() {
   client.sender.sendHP(2, client.hp[1] + 1);
 }
-window.addHPP = addHPP;
+(globalThis as any).addHPP = addHPP;

@@ -8,7 +8,7 @@ import { MessageType } from "./messageEncoder";
  */
 export const sendHP = (side: number, hp: number) => {
   client.sender.sendServer(
-    MessageType.HP,
+    MessageType.HEALTH_POINTS,
     [side.toString(), hp.toString()]
   );
 };

@@ -7,7 +7,7 @@ import { MessageType } from "./messageEncoder";
  */
 export const sendMusicChange = (track: string) => {
   client.sender.sendServer(
-    MessageType.MC,
+    MessageType.MUSIC_CHANGE,
     [track, client.charID.toString()]
   )
 };

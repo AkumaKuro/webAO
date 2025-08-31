@@ -9,7 +9,7 @@ export function changeRoleOOC() {
 
   client.sender.sendOOC(`/pos ${roleselect.value}`);
   client.sender.sendServer(
-    MessageType.SP, [roleselect.value]
+    MessageType.CHANGE_POSITION, [roleselect.value]
   )
   updateActionCommands(roleselect.value);
 }

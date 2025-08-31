@@ -9,7 +9,7 @@ import { MessageType } from "./messageEncoder";
  */
 export const sendMA = (id: number, length: number, reason: string) => {
   client.sender.sendServer(
-    MessageType.MA,
+    MessageType.MOD_COMMAND,
     [id.toString(), length.toString(), reason]
   );
 };

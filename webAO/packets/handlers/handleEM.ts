@@ -35,7 +35,7 @@ export const handleEM = (args: string[]) => {
   }
   // get the next batch of tracks
   client.sender.sendServer(
-    MessageType.AM,
+    MessageType.REQUEST_MUSIC,
     [(Number(args[1]) / 10 + 1).toString()]
   )
 };

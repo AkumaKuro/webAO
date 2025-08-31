@@ -49,4 +49,4 @@ export function pickEvidence(evidence: number) {
     cancelEvidence();
   }
 }
-window.pickEvidence = pickEvidence;
+(globalThis as any).pickEvidence = pickEvidence;

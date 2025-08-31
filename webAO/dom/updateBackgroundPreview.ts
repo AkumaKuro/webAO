@@ -28,4 +28,4 @@ export function updateBackgroundPreview() {
     background_preview.src = resp;
   });
 }
-window.updateBackgroundPreview = updateBackgroundPreview;
+(globalThis as any).updateBackgroundPreview = updateBackgroundPreview;

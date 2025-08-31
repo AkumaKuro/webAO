@@ -11,7 +11,7 @@ import { MessageType } from "./messageEncoder";
  */
 export const sendEE = (id: number, name: string, desc: string, img: string) => {
   client.sender.sendServer(
-    MessageType.EE, [
+    MessageType.EDIT_EVIDENCE, [
       id.toString(),
       escapeChat(name),
       escapeChat(desc),

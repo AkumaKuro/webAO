@@ -1,13 +1,13 @@
-import { client, extrafeatures } from "../../client";
+import { client } from "../../client";
 import { MessageType } from "./messageEncoder";
 
 /**
  * Sends call mod command.
- * @param {string} message to mod
+ * @param {string} msg to mod
  */
 export const sendZZ = (msg: string, target: number) => {
   client.sender.sendServer(
-    MessageType.ZZ,
+    MessageType.MOD_CALL,
     [msg, target.toString()]
   )
 };

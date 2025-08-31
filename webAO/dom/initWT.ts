@@ -6,4 +6,4 @@ import { client } from "../client";
 export function initWT() {
   client.sender.sendRT("testimony1");
 }
-window.initWT = initWT;
+(globalThis as any).initWT = initWT;

@@ -18,4 +18,4 @@ export async function iniedit() {
   await handleCharacterInfo(newname.split("&"), inicharID);
   packetHandler.get("PV")!(`PV#0#CID#${inicharID}`.split("#"));
 }
-window.iniedit = iniedit;
+(globalThis as any).iniedit = iniedit;

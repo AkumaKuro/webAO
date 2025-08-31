@@ -12,4 +12,4 @@ export const changeBlipVolume = () => {
   );
   setCookie("blipVolume", blipVolume);
 };
-window.changeBlipVolume = changeBlipVolume;
+(globalThis as any).changeBlipVolume = changeBlipVolume;

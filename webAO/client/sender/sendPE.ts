@@ -10,7 +10,7 @@ import { MessageType } from "./messageEncoder";
  */
 export const sendPE = (name: string, desc: string, img: string) => {
   client.sender.sendServer(
-    MessageType.PE, [
+    MessageType.CREATE_EVIDENCE, [
       escapeChat(name),
       escapeChat(desc),
       escapeChat(img)

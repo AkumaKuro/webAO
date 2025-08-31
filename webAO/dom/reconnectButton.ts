@@ -13,4 +13,4 @@ export function ReconnectButton() {
     document.getElementById("client_error")!.style.display = "none";
   }
 }
-window.ReconnectButton = ReconnectButton;
+(globalThis as any).ReconnectButton = ReconnectButton;

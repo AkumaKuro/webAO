@@ -23,4 +23,4 @@ export function changeBackgroundOOC() {
     client.sender.sendSelf(`BN#${filename}#%`);
   }
 }
-window.changeBackgroundOOC = changeBackgroundOOC;
+(globalThis as any).changeBackgroundOOC = changeBackgroundOOC;

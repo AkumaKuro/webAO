@@ -30,7 +30,7 @@ export const handleLE = (args: string[]) => {
     evi_item.src = client.evidences[i].icon;
     evi_item.alt = client.evidences[i].name;
     evi_item.onclick = () => {
-      window.pickEvidence(i);
+      (globalThis as any).pickEvidence(i);
     };
     evidence_box.appendChild(evi_item);
   }

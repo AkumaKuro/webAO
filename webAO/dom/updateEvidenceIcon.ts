@@ -25,4 +25,4 @@ export function updateEvidenceIcon() {
     )}`;
   }
 }
-window.updateEvidenceIcon = updateEvidenceIcon;
+(globalThis as any).updateEvidenceIcon = updateEvidenceIcon;

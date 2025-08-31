@@ -248,7 +248,7 @@ class Client extends EventEmitter {
    * to the server.
    */
   joinServer() {
-    this.sender.sendServer(MessageType.HI, [hdid])
+    this.sender.sendServer(MessageType.HANDSHAKE, [hdid])
     if (this.enableCaptcha && getCookie("hdid") !== hdid) {
       this.sender.sendServerRaw(getCookie("hdid"));
       document.getElementById("client_secondfactor").style.display = "block";

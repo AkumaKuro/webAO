@@ -11,4 +11,4 @@ export const changeMusicVolume = (volume: number = -1) => {
   );
   setCookie("musicVolume", String(musicVolume));
 };
-window.changeMusicVolume = changeMusicVolume;
+(globalThis as any).changeMusicVolume = changeMusicVolume;

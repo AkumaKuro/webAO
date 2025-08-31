@@ -70,4 +70,4 @@ export function resizeChatbox() {
     );
   }
 }
-window.resizeChatbox = resizeChatbox;
+(globalThis as any).resizeChatbox = resizeChatbox;

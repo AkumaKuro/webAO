@@ -26,7 +26,7 @@ function addPlayer(playerID: number) {
   const kick = <HTMLButtonElement>document.createElement("button");
   kick.innerText = "Kick";
   kick.onclick = () => {
-    window.kickPlayer(playerID);
+    (globalThis as any).kickPlayer(playerID);
   };
   kickCell.appendChild(kick);
 
@@ -35,7 +35,7 @@ function addPlayer(playerID: number) {
   const ban = <HTMLButtonElement>document.createElement("button");
   ban.innerText = "Ban";
   ban.onclick = () => {
-    window.banPlayer(playerID);
+    (globalThis as any).banPlayer(playerID);
   };
   banCell.appendChild(ban);
 }

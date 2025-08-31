@@ -99,4 +99,4 @@ export function onEnter(event: KeyboardEvent) {
   }
   return false;
 }
-window.onEnter = onEnter;
+(globalThis as any).onEnter = onEnter;

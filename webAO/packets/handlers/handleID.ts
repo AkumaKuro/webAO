@@ -25,7 +25,7 @@ export const handleID = (args: string[]) => {
 
   if (serverSoftware !== "webAO") {
     client.sender.sendServer(
-      MessageType.ID,
+      MessageType.REQUEST_ID,
       [version]
     )
   }

@@ -85,7 +85,7 @@ export const sendIC = (
   }
 
   client.sender.sendServer(
-    MessageType.MS, [
+    MessageType.SEND_CHARACTER_MESSAGE, [
       deskmod.toString(),
       escapeChat(preanim),
       escapeChat(name),

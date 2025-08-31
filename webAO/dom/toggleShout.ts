@@ -19,4 +19,4 @@ export function toggleShout(shout: number) {
     setSelectedShout(shout);
   }
 }
-window.toggleShout = toggleShout;
+(globalThis as any).toggleShout = toggleShout;

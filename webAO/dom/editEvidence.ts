@@ -19,4 +19,4 @@ export function editEvidence() {
   );
   cancelEvidence();
 }
-window.editEvidence = editEvidence;
+(globalThis as any).editEvidence = editEvidence;
