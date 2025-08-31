@@ -3,10 +3,10 @@ import { escapeChat } from "../../encoding";
 
 /**
  * Sends edit evidence command.
- * @param {number} evidence id
- * @param {string} evidence name
- * @param {string} evidence description
- * @param {string} evidence image filename
+ * @param {number} id id
+ * @param {string} name name
+ * @param {string} desc description
+ * @param {string} img image filename
  */
 export const sendEE = (id: number, name: string, desc: string, img: string) => {
   client.sender.sendServer(
