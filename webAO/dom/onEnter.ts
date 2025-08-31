@@ -1,4 +1,5 @@
 import { client, selectedShout } from "../client";
+import { FrameMod, Player } from "../client/sender/sendIC";
 import { escapeChat } from "../encoding";
 
 /**
@@ -71,30 +72,23 @@ export function onEnter(event: KeyboardEvent) {
     client.sender.sendIC(
       myemo.deskmod,
       myemo.preanim,
-      mychar.name,
-      myemo.emote,
       text,
       myrole,
       sfxname,
-      emote_mod,
       sfxdelay,
       selectedShout,
       evi,
       flip,
       flash,
       color,
-      showname,
       pairchar,
-      pairoffset,
-      pairyoffset,
       noninterrupting_preanim,
       looping_sfx,
       screenshake,
-      "-",
-      "-",
-      "-",
       additive,
       effect,
+      new Player(mychar.name, showname, pairoffset, pairyoffset, myemo.emote, emote_mod),
+      new FrameMod('-', '-', '-')
     );
   }
   return false;

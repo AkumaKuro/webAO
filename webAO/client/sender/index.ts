@@ -1,4 +1,4 @@
-import { sendIC } from "./sendIC";
+import { FrameMod, Player, sendIC } from "./sendIC";
 import { sendSelf } from "./sendSelf";
 import { sendServer, sendServerRaw } from "./sendServer";
 import { sendCheck } from "./sendCheck";
@@ -17,30 +17,23 @@ export interface ISender {
   sendIC: (
     deskmod: number,
     preanim: string,
-    name: string,
-    emote: string,
     message: string,
     side: string,
     sfx_name: string,
-    emote_modifier: number,
     sfx_delay: number,
     objection_modifier: number,
     evidence: number,
     flip: boolean,
     realization: boolean,
     text_color: number,
-    showname: string,
     other_charid: string,
-    self_hoffset: number,
-    self_yoffset: number,
     noninterrupting_preanim: boolean,
     looping_sfx: boolean,
     screenshake: boolean,
-    frame_screenshake: string,
-    frame_realization: string,
-    frame_sfx: string,
     additive: boolean,
     effect: string,
+    player: Player,
+    frame_mod: FrameMod
   ) => void;
   sendSelf: (message: string) => void;
   sendServer: (message: MessageType, args: string[]) => void;
@@ -57,7 +50,7 @@ export interface ISender {
   sendPE: (name: string, desc: string, img: string) => void;
   sendMA: (id: number, length: number, reason: string) => void;
 }
-export const sender = {
+export const sender: ISender = {
   sendIC,
   sendSelf,
   sendServer,

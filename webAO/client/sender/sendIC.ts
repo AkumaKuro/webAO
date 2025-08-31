@@ -5,6 +5,8 @@ import queryParser from "../../utils/queryParser";
 import { MessageType } from "./messageEncoder";
 const { mode } = queryParser();
 
+export { Player, FrameMod }
+
 /**
  * Sends an in-character chat message.
  * @param {number} deskmod controls the desk
@@ -26,33 +28,58 @@ const { mode } = queryParser();
  * @param {number} self_offset offset to paired character (optional)
  * @param {number} noninterrupting_preanim play the full preanim (optional)
  */
+
+class Player {
+  name: string
+  showname: string
+  offset_x: number
+  offset_y: number
+  emote: string
+  emote_modifier: number
+
+  constructor(name: string, showname: string, offset_x: number, offset_y: number, emote: string, emote_modifier: number) {
+    this.name = name
+    this.showname = showname
+    this.offset_x = offset_x
+    this.offset_y = offset_y
+    this.emote = emote
+    this.emote_modifier = emote_modifier
+  }
+}
+
+class FrameMod {
+  screenshake: string
+  realization: string
+  sfx: string
+
+  constructor(screenshake: string, realization: string, sfx: string) {
+    this.screenshake = screenshake
+    this.realization = realization
+    this.sfx = sfx
+  }
+}
+
+
 export const sendIC = (
   deskmod: number,
   preanim: string,
-  name: string,
-  emote: string,
   message: string,
   side: string,
   sfx_name: string,
-  emote_modifier: number,
   sfx_delay: number,
   objection_modifier: number,
   evidence: number,
   flip: boolean,
   realization: boolean,
   text_color: number,
-  showname: string,
   other_charid: string,
-  self_hoffset: number,
-  self_yoffset: number,
   noninterrupting_preanim: boolean,
   looping_sfx: boolean,
   screenshake: boolean,
-  frame_screenshake: string,
-  frame_realization: string,
-  frame_sfx: string,
   additive: boolean,
   effect: string,
+  player: Player,
+  frame_mod: FrameMod
 ) => {
   let extra_cccc = "";
   let other_emote = "";
@@ -62,14 +89,14 @@ export const sendIC = (
 
   if (extrafeatures.includes("cccc_ic_support")) {
     const self_offset = extrafeatures.includes("y_offset")
-      ? `${self_hoffset}<and>${self_yoffset}`
-      : self_hoffset; // HACK: this should be an & but client fucked it up and all the servers adopted it
+      ? `${player.offset_x}<and>${player.offset_y}`
+      : player.offset_x; // HACK: this should be an & but client fucked it up and all the servers adopted it
     if (mode === "replay") {
       other_emote = "##";
       other_offset = "#0#0";
     }
     extra_cccc = `${escapeChat(
-      showname,
+      player.showname,
     )}#${other_charid}${other_emote}#${self_offset}${other_offset}#${Number(
       noninterrupting_preanim,
     )}#`;
@@ -77,7 +104,7 @@ export const sendIC = (
     if (extrafeatures.includes("looping_sfx")) {
       extra_27 = `${Number(looping_sfx)}#${Number(
         screenshake,
-      )}#${frame_screenshake}#${frame_realization}#${frame_sfx}#`;
+      )}#${frame_mod.screenshake}#${frame_mod.realization}#${frame_mod.sfx}#`;
       if (extrafeatures.includes("effects")) {
         extra_28 = `${Number(additive)}#${escapeChat(effect)}#`;
       }
@@ -88,12 +115,12 @@ export const sendIC = (
     MessageType.SEND_CHARACTER_MESSAGE, [
       deskmod.toString(),
       escapeChat(preanim),
-      escapeChat(name),
-      escapeChat(emote),
+      escapeChat(player.name),
+      escapeChat(player.emote),
       escapeChat(message),
       escapeChat(side),
       escapeChat(sfx_name),
-      emote_modifier.toString(),
+      player.emote_modifier.toString(),
       client.charID.toString(),
       sfx_delay.toString(),
       Number(objection_modifier).toString(),
