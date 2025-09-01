@@ -1,25 +1,30 @@
+export {escapeChat, unescapeChat}
+
+const replace_table: Map<string, string> = new Map([
+  ["#", "<num>"], ["&", "<and>"],
+  ["%", "<percent>"], ["$", "<dollar>"]
+])
+
 /**
  * Escapes a string to AO1 escape codes.
  * @param {string} estring the string to be escaped
  */
-export function escapeChat(estring: string): string {
+function escapeChat(estring: string): string {
+  for (const [key, value] of replace_table) {
+    estring = estring.replaceAll(key, value)
+  }
   return estring
-    .replaceAll("#", "<num>")
-    .replaceAll("&", "<and>")
-    .replaceAll("%", "<percent>")
-    .replaceAll("$", "<dollar>");
 }
 
 /**
  * Unescapes a string to AO1 escape codes.
  * @param {string} estring the string to be unescaped
  */
-export function unescapeChat(estring: string): string {
+function unescapeChat(estring: string): string {
+  for (const [key, value] of replace_table) {
+    estring = estring.replaceAll(value, key)
+  }
   return estring
-    .replaceAll("<num>", "#")
-    .replaceAll("<and>", "&")
-    .replaceAll("<percent>", "%")
-    .replaceAll("<dollar>", "$");
 }
 
 /**
