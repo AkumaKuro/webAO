@@ -10,8 +10,6 @@
   },
   "include": [
     "./webAO/*",
-    "./webAO/viewport/viewport.ts",
-    "./webAO/types/index.d.ts",
-    "./webAO/serviceWorkerHelper.ts"
+    "./webAO/dom/window.ts"
   ]
 }
