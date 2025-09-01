@@ -45,7 +45,7 @@ function createArea(id: number, aname: string) {
   client.areas.push(area);
 
   // Create area button
-  const new_area = document.createElement("SPAN");
+  const new_area = document.createElement("SPAN") as HTMLSpanElement;
   new_area.className = "area-button area-default";
   new_area.id = `area${id}`;
   new_area.innerText = area.name;
