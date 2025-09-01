@@ -1,4 +1,4 @@
-import {filesExist} from "./filesExist";
+import {filesExist} from "./filesExists";
 import transparentPng from "../constants/transparentPng";
 
 /**
