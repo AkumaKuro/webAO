@@ -11,6 +11,7 @@
   "include": [
     "./webAO/*",
     "./webAO/viewport/viewport.ts",
-    "./webAO/types/index.d.ts"
+    "./webAO/types/index.d.ts",
+    "./webAO/serviceWorkerHelper.ts"
   ]
 }
