@@ -2,7 +2,7 @@ import { client } from "../client";
 import { safeTags } from "../encoding";
 import iniParse from "../iniParse";
 import request from "../services/request";
-import fileExists from "../utils/fileExists";
+import { fileExists } from "../utils/filesExists";
 import { AO_HOST } from "./aoHost";
 
 export const getCharIcon = async (img: HTMLImageElement, charname: string) => {

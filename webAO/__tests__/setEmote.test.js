@@ -1,6 +1,6 @@
 import setEmote from "../client/setEmote.ts";
 import Client from "../client.ts";
-import fileExists from "../utils/fileExists.ts";
+import {fileExists} from "../utils/fileExists.ts";
 import transparentPng from "../constants/transparentPng.js";
 
 jest.mock("../viewport/utils/createMusic");

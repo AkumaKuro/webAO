@@ -1,6 +1,6 @@
 import Client from "../client";
 import transparentPng from "../constants/transparentPng";
-import fileExists from "../utils/fileExists";
+import { fileExists } from "../utils/filesExists";
 
 /**
  * Sets all the img tags to the right sources
