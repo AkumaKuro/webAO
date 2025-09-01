@@ -5,7 +5,7 @@ import { updatePlayerAreas } from "../../dom/updatePlayerAreas";
 import vanilla_music_arr from "../../constants/music.js";
 import vanilla_character_arr from "../../constants/characters.js";
 
-export {handlePN, handle_playerlist_update as handlePU}
+export {handlePN, handle_playerlist_update as handlePU, handlePV}
 
 /**
  * Indicates how many users are on this server
@@ -277,12 +277,13 @@ function addEmoteButton(i: number, imgurl: string, desc: string) {
   emotesList.appendChild(emote_item);
 }
 
+
 /**
  * Handles the server's assignment of a character for the player to use.
  * PV # playerID (unused) # CID # character ID
  * @param {Array} args packet arguments
  */
-export const handlePV = async (args: string[]) => {
+async function handlePV(args: string[]) {
   client.charID = Number(args[3]);
   document.getElementById("client_waiting")!.style.display = "none";
   document.getElementById("client_charselect")!.style.display = "none";
@@ -1147,7 +1148,7 @@ async function handleSC(args: string[]) {
 
 
 import { oldLoading } from "../../client";
-import { fileExists } from "../../utils/filesExist";
+import { fileExists } from "../../utils/filesExists";
 
 /**
  * Received when the server announces its server info,
