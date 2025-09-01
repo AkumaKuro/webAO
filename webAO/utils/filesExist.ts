@@ -1,4 +1,4 @@
-import fileExists from "./fileExists";
+export {fileExists, filesExist}
 
 /**
  * This function takes a list of urls and returns the first one that exists.
@@ -6,7 +6,7 @@ import fileExists from "./fileExists";
  * @param urls the list of URLs to check
  * @returns either the first URL that exists or null if none were found
  */
-export default async function filesExist(
+async function filesExist(
   urls: string[],
 ): Promise<string | null> {
   const promises = urls.map(async (url) => {
@@ -27,4 +27,24 @@ export default async function filesExist(
   }
 
   return null; // None of the URLs exist
+}
+
+async function fileExists(url: string): Promise<boolean> {
+  return new Promise((resolve) => {
+    const xhr = new XMLHttpRequest();
+    xhr.open("HEAD", url);
+    xhr.onload = function checkLoad() {
+      if (xhr.readyState === 4) {
+        if (xhr.status === 200) {
+          resolve(true);
+        } else {
+          resolve(false);
+        }
+      }
+    };
+    xhr.onerror = function checkError() {
+      resolve(false);
+    };
+    xhr.send(null);
+  });
 }

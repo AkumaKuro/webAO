@@ -258,7 +258,7 @@ export const handleMS = (args: string[]) => {
 };
 
 
-import fileExists from "../../utils/fileExists";
+
 import { updateActionCommands } from "../../dom/updateActionCommands";
 import { pickEmotion } from "../../dom/pickEmotion";
 
@@ -1147,6 +1147,7 @@ async function handleSC(args: string[]) {
 
 
 import { oldLoading } from "../../client";
+import { fileExists } from "../../utils/filesExist";
 
 /**
  * Received when the server announces its server info,

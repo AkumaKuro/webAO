@@ -1,5 +1,6 @@
-import fileExists from "./fileExists";
 import transparentPng from "../constants/transparentPng";
+import { fileExists } from "./filesExist";
+
 const urlExtensionsToTry = [".png", ".gif", ".webp", ".apng"];
 const tryUrls = async (url: string) => {
   for (let i = 0; i < urlExtensionsToTry.length; i++) {
