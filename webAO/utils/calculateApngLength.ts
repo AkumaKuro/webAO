@@ -2,7 +2,7 @@
  * Adds up the chunk delays to find out how long a APNG is
  * @param {data} apngFile the APNG data
  */
-const calculateApngLength = (apngFile) => {
+const calculateApngLength = (apngFile: any) => {
   const d = new Uint8Array(apngFile);
   // https://wiki.mozilla.org/APNG_Specification#.60fcTL.60:_The_Frame_Control_Chunk
   let duration = 0;

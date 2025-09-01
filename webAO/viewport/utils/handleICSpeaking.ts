@@ -5,12 +5,12 @@ import { checkCallword } from "../../client/checkCallword";
 import setEmote from "../../client/setEmote";
 import { AO_HOST } from "../../client/aoHost";
 import { SHOUTS } from "../constants/shouts";
-import getAnimLength from "../../utils/getAnimLength";
 import { setChatbox } from "../../dom/setChatbox";
 import { resizeChatbox } from "../../dom/resizeChatbox";
 import transparentPng from "../../constants/transparentPng";
 import { COLORS } from "../constants/colors";
 import mlConfig from "../../utils/aoml";
+import { getAnimLength } from '../../utils/getAnimLength'
 
 const attorneyMarkdown = mlConfig(AO_HOST);
 
