@@ -38,15 +38,15 @@
 
     <meta
       http-equiv="Content-Security-Policy"
-      content="default-src 'self' 'unsafe-inline' 'unsafe-eval' *.aceattorneyonline.com data:; frame-src http://servers.aceattorneyonline.com https://servers.aceattorneyonline.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; connect-src 'self' http://servers.aceattorneyonline.com https://servers.aceattorneyonline.com ws:;"
+      content="default-src 'self' 'unsafe-inline' 'unsafe-eval' *.aceattorneyonline.com data:; frame-src http://servers.aceattorneyonline.com https://servers.aceattorneyonline.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; connect-src 'self' http://servers.aceattorneyonline.com https://servers.aceattorneyonline.com ws:; img-src 'self' data:;"
     />
     <meta
       http-equiv="X-Content-Security-Policy"
-      content="default-src 'self' 'unsafe-inline' 'unsafe-eval' *.aceattorneyonline.com data:; frame-src http://servers.aceattorneyonline.com https://servers.aceattorneyonline.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; connect-src 'self' http://servers.aceattorneyonline.com https://servers.aceattorneyonline.com ws:;"
+      content="default-src 'self' 'unsafe-inline' 'unsafe-eval' *.aceattorneyonline.com data:; frame-src http://servers.aceattorneyonline.com https://servers.aceattorneyonline.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; connect-src 'self' http://servers.aceattorneyonline.com https://servers.aceattorneyonline.com ws:;img-src 'self' data:;"
     />
     <meta
       http-equiv="X-WebKit-CSP"
-      content="default-src 'self' 'unsafe-inline' 'unsafe-eval' *.aceattorneyonline.com data:; frame-src http://servers.aceattorneyonline.com https://servers.aceattorneyonline.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; connect-src 'self' http://servers.aceattorneyonline.com https://servers.aceattorneyonline.com ws:;"
+      content="default-src 'self' 'unsafe-inline' 'unsafe-eval' *.aceattorneyonline.com data:; frame-src http://servers.aceattorneyonline.com https://servers.aceattorneyonline.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; connect-src 'self' http://servers.aceattorneyonline.com https://servers.aceattorneyonline.com ws:;img-src 'self' data:;"
     />
 
     <!-- Mobile Specifc Meta -->
@@ -78,15 +78,7 @@
     <link rel="shortcut icon" href="favicon.ico" type="image/x-icon" />
     <link rel="icon" href="favicon.ico" />
     <link rel="manifest" href="manifest.json" />
-    <script>
-      // Check that service workers are supported
-      if ("serviceWorker" in navigator) {
-        // Use the window load event to keep the page load performant
-        window.addEventListener("load", () => {
-          navigator.serviceWorker.register("service-worker.js");
-        });
-      }
-    </script>
+    <script type="module" src="/dist/serviceWorkerHelper.js"></script>
   </head>
 
   <body>
