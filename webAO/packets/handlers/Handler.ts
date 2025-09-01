@@ -625,7 +625,7 @@ export const handleID = (args: string[]) => {
 
 
 
-import { createArea } from "../../client/createArea";
+import { AreaLockMode, AreaStatus, createArea, parseEnum } from "../../client/createArea";
 
 /**
  * Handles updated area list
@@ -913,7 +913,12 @@ function addLinks(message: string) {
 }
 
 
-
+enum ARUPType {
+    PLAYER_COUNT,
+    STATUS,
+    CM,
+    LOCK_MODE
+}
 
 
 /**
@@ -926,18 +931,23 @@ export const handleARUP = (args: string[]) => {
     if (client.areas[i]) {
       // the server sends us ARUP before we even get the area list
       const thisarea = document.getElementById(`area${i}`)!;
-      switch (Number(args[0])) {
-        case 0: // playercount
+      const arup_type: ARUPType = Number(args[0])
+      switch (arup_type) {
+        case ARUPType.PLAYER_COUNT: // playercount
           client.areas[i].players = Number(args[i + 1]);
           break;
-        case 1: // status
-          client.areas[i].status = safeTags(args[i + 1]);
+        case ARUPType.STATUS: // status
+          const unsafe_status = safeTags(args[i + 1])
+          const status: AreaStatus = parseEnum(AreaStatus, unsafe_status, AreaStatus.IDLE)
+          
+          client.areas[i].status = status
           break;
-        case 2:
+        case ARUPType.CM:
           client.areas[i].cm = safeTags(args[i + 1]);
           break;
-        case 3:
-          client.areas[i].locked = safeTags(args[i + 1]);
+        case ARUPType.LOCK_MODE:
+          const unsafe_lock_mode = safeTags(args[i + 1])
+          client.areas[i].locked = parseEnum(AreaLockMode, unsafe_lock_mode, AreaLockMode.FREE)
           break;
       }
 
@@ -1212,11 +1222,13 @@ export const handleSM = (args: string[]) => {
 };
 
 
+export {handleSP}
+
 /**
  * position change
  * @param {string} pos new position
  */
-export const handleSP = (args: string[]) => {
+function handleSP(args: string[]) {
   updateActionCommands(args[1]);
 };
 

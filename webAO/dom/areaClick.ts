@@ -5,7 +5,7 @@ import { updatePlayerAreas } from "./updatePlayerAreas";
  * @param {HTMLElement} el
  */
 export function area_click(el: HTMLElement) {
-  const area = client.areas[el.id.substring(4)].name;
+  const area = client.areas[Number(el.id.substring(4))].name;
   client.sender.sendMusicChange(area);
 
   const areaHr = document.createElement("div");

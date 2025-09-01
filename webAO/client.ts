@@ -22,6 +22,7 @@ import {
 } from "./client/fetchLists";
 import getCookie from "./utils/getCookie";
 import { MessageType } from "./client/sender/messageEncoder";
+import { Area } from "./client/createArea";
 const { ip: serverIP, connect, mode, theme, serverName } = queryParser();
 
 document.title = serverName;
@@ -130,7 +131,7 @@ class Client extends EventEmitter {
   emotes: any;
   evidences: any;
   area: number;
-  areas: any;
+  areas: Area[];
   musics: any;
   musics_time: boolean;
   callwords: string[];
