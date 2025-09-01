@@ -1,4 +1,4 @@
-import { FrameMod, Player, sendIC } from "./sendIC";
+import { FrameMod, OtherPlayer, Player, sendIC } from "./sendIC";
 import { sendSelf } from "./sendSelf";
 import { sendServer, sendServerRaw } from "./sendServer";
 import { sendCheck } from "./sendCheck";
@@ -33,7 +33,8 @@ export interface ISender {
     additive: boolean,
     effect: string,
     player: Player,
-    frame_mod: FrameMod
+    frame_mod: FrameMod,
+    other_player: OtherPlayer
   ) => void;
   sendSelf: (message: string) => void;
   sendServer: (message: MessageType, args: string[]) => void;

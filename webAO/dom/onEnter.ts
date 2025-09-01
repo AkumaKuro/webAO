@@ -1,5 +1,5 @@
 import { client, selectedShout } from "../client";
-import { FrameMod, Player } from "../client/sender/sendIC";
+import { FrameMod, OtherPlayer, Player } from "../client/sender/sendIC";
 import { escapeChat } from "../encoding";
 
 /**
@@ -88,7 +88,8 @@ export function onEnter(event: KeyboardEvent) {
       additive,
       effect,
       new Player(mychar.name, showname, pairoffset, pairyoffset, myemo.emote, emote_mod),
-      new FrameMod('-', '-', '-')
+      new FrameMod('-', '-', '-'),
+      new OtherPlayer()
     );
   }
   return false;

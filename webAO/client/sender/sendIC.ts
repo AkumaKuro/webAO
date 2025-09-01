@@ -5,7 +5,7 @@ import queryParser from "../../utils/queryParser";
 import { MessageType } from "./messageEncoder";
 const { mode } = queryParser();
 
-export { Player, FrameMod }
+export { Player, FrameMod, OtherPlayer }
 
 /**
  * Sends an in-character chat message.
@@ -59,6 +59,12 @@ class FrameMod {
   }
 }
 
+class OtherPlayer {
+  charid: string
+  emote: string
+  offset: string
+}
+
 
 export const sendIC = (
   deskmod: number,
@@ -79,11 +85,12 @@ export const sendIC = (
   additive: boolean,
   effect: string,
   player: Player,
-  frame_mod: FrameMod
+  frame_mod: FrameMod,
+  other_player: OtherPlayer
 ) => {
   let extra_cccc = "";
-  let other_emote = "";
-  let other_offset = "";
+  other_player.emote = "";
+  other_player.offset = "";
   let extra_27 = "";
   let extra_28 = "";
 
@@ -92,12 +99,12 @@ export const sendIC = (
       ? `${player.offset_x}<and>${player.offset_y}`
       : player.offset_x; // HACK: this should be an & but client fucked it up and all the servers adopted it
     if (mode === "replay") {
-      other_emote = "##";
-      other_offset = "#0#0";
+      other_player.emote = "##";
+      other_player.offset = "#0#0";
     }
     extra_cccc = `${escapeChat(
       player.showname,
-    )}#${other_charid}${other_emote}#${self_offset}${other_offset}#${Number(
+    )}#${other_charid}${other_player.emote}#${self_offset}${other_player.offset}#${Number(
       noninterrupting_preanim,
     )}#`;
 
